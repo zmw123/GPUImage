@@ -16,6 +16,7 @@ void setColorConversion709( GLfloat conversionMatrix[9] );
 
 @optional
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+- (BOOL)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer isVideo:(BOOL)isVideo;
 @end
 
 

@@ -9,7 +9,7 @@ extern NSString *const kGPUImageColorSwizzlingFragmentShaderString;
 @optional
 - (void)movieRecordingCompleted;
 - (void)movieRecordingFailedWithError:(NSError*)error;
-
+- (void)movieAppendBuffer:(CVPixelBufferRef)buffer time:(CMTime)time;
 @end
 
 @interface GPUImageMovieWriter : NSObject <GPUImageInput>

@@ -168,3 +168,4 @@
 #import "GPUImageColourFASTFeatureDetector.h"
 #import "GPUImageColourFASTSamplingOperation.h"
 
+#import "GPUImageBeautifyFilter.h"

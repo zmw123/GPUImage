@@ -876,7 +876,11 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
     }
     else if (captureOutput == audioOutput)
     {
-        [self processAudioSampleBuffer:sampleBuffer];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(willOutputSampleBuffer:isVideo:)])
+        {
+            [self.delegate willOutputSampleBuffer:sampleBuffer isVideo:NO];
+        }
+//        [self processAudioSampleBuffer:sampleBuffer];
     }
     else
     {
@@ -888,12 +892,17 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
         CFRetain(sampleBuffer);
         runAsynchronouslyOnVideoProcessingQueue(^{
             //Feature Detection Hook.
-            if (self.delegate)
+            if (self.delegate && [self.delegate respondsToSelector:@selector(willOutputSampleBuffer:isVideo:)])
             {
-                [self.delegate willOutputSampleBuffer:sampleBuffer];
+//                [self.delegate willOutputSampleBuffer:sampleBuffer];
+                BOOL result = [self.delegate willOutputSampleBuffer:sampleBuffer isVideo:YES];
+                if (result)
+                {
+                    [self processVideoSampleBuffer:sampleBuffer];
+                }
             }
             
-            [self processVideoSampleBuffer:sampleBuffer];
+//            [self processVideoSampleBuffer:sampleBuffer];
             
             CFRelease(sampleBuffer);
             dispatch_semaphore_signal(frameRenderingSemaphore);
