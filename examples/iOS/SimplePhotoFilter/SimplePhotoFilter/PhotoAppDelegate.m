@@ -12,8 +12,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     rootViewController = [[PhotoViewController alloc] initWithNibName:nil bundle:nil];
-    rootViewController.view.frame = [[UIScreen mainScreen] bounds];
-    [self.window addSubview:rootViewController.view];
+//    rootViewController.view.frame = [[UIScreen mainScreen] bounds];
+//    [self.window addSubview:rootViewController.view];
+    self.window.rootViewController = rootViewController;
     
     [self.window makeKeyAndVisible];
     return YES;

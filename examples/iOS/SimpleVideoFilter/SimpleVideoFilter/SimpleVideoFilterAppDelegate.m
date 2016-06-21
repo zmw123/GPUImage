@@ -18,7 +18,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     rootViewController = [[SimpleVideoFilterViewController alloc] initWithNibName:@"SimpleVideoFilterViewController" bundle:nil];
-    rootViewController.view.frame = [[UIScreen mainScreen] bounds];
+//    rootViewController.view.frame = [[UIScreen mainScreen] bounds];
     [self.window addSubview:rootViewController.view];
 
     [self.window makeKeyAndVisible];

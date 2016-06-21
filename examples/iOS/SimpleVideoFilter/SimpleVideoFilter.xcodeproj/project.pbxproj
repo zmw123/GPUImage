@@ -26,6 +26,8 @@
 		BCB5DDFF14E87783000AF3C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB5DDFE14E87783000AF3C2 /* QuartzCore.framework */; };
 		BCB5DE0114E87789000AF3C2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB5DE0014E87789000AF3C2 /* OpenGLES.framework */; };
 		BCF867511725AB5300912E34 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF8674C1725AB2100912E34 /* libGPUImage.a */; };
+		C0BA5D0F1D13EE8F00B4714F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0BA5D0E1D13EE8F00B4714F /* 2.jpg */; };
+		C0BA5D1B1D13F48000B4714F /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C0BA5D1A1D13F48000B4714F /* 3.png */; };
 		D30ACF271BAFE43F00E9759C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30ACF261BAFE43F00E9759C /* AssetsLibrary.framework */; };
 		E5066F611855AC78008C7682 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5066F601855AC78008C7682 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,8 @@
 		BCB5DDFB14E876ED000AF3C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		BCB5DDFE14E87783000AF3C2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BCB5DE0014E87789000AF3C2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		C0BA5D0E1D13EE8F00B4714F /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = ../../../../Desktop/2.jpg; sourceTree = "<group>"; };
+		C0BA5D1A1D13F48000B4714F /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../../../Desktop/3.png; sourceTree = "<group>"; };
 		D30ACF261BAFE43F00E9759C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		E5066F601855AC78008C7682 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				E5066F601855AC78008C7682 /* Default-568h@2x.png */,
+				C0BA5D0E1D13EE8F00B4714F /* 2.jpg */,
+				C0BA5D1A1D13F48000B4714F /* 3.png */,
 				BCB5DDD414E86899000AF3C2 /* SimpleVideoFilter */,
 				BCB5DDCD14E86899000AF3C2 /* Frameworks */,
 				BCB5DDCB14E86899000AF3C2 /* Products */,
@@ -208,7 +214,7 @@
 				ORGANIZATIONNAME = "Cell Phone";
 				TargetAttributes = {
 					BCB5DDC914E86899000AF3C2 = {
-						DevelopmentTeam = V2DTUY5PQ8;
+						DevelopmentTeam = A8C8NSF54G;
 					};
 				};
 			};
@@ -260,10 +266,12 @@
 				BCB5DDD914E86899000AF3C2 /* InfoPlist.strings in Resources */,
 				BCB5DDE914E868C0000AF3C2 /* SimpleVideoFilterViewController.xib in Resources */,
 				BCB3C44716BCA8C4003D26B0 /* Icon-72.png in Resources */,
+				C0BA5D0F1D13EE8F00B4714F /* 2.jpg in Resources */,
 				BCB3C44816BCA8C4003D26B0 /* Icon-72@2x.png in Resources */,
 				BCB3C44916BCA8C4003D26B0 /* Icon.png in Resources */,
 				E5066F611855AC78008C7682 /* Default-568h@2x.png in Resources */,
 				BCB3C44A16BCA8C4003D26B0 /* Icon@2x.png in Resources */,
+				C0BA5D1B1D13F48000B4714F /* 3.png in Resources */,
 				BCB3C44B16BCA8C4003D26B0 /* iTunesArtwork.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +393,7 @@
 				GCC_PREFIX_HEADER = "SimpleVideoFilter/SimpleVideoFilter-Prefix.pch";
 				INFOPLIST_FILE = "SimpleVideoFilter/SimpleVideoFilter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -398,6 +407,7 @@
 				GCC_PREFIX_HEADER = "SimpleVideoFilter/SimpleVideoFilter-Prefix.pch";
 				INFOPLIST_FILE = "SimpleVideoFilter/SimpleVideoFilter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

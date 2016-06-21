@@ -901,8 +901,10 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
                     [self processVideoSampleBuffer:sampleBuffer];
                 }
             }
-            
-//            [self processVideoSampleBuffer:sampleBuffer];
+            else
+            {
+                [self processVideoSampleBuffer:sampleBuffer];
+            }
             
             CFRelease(sampleBuffer);
             dispatch_semaphore_signal(frameRenderingSemaphore);
