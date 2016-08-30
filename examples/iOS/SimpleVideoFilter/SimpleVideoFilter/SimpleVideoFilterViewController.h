@@ -6,6 +6,7 @@
     GPUImageVideoCamera *videoCamera;
     GPUImageOutput<GPUImageInput> *filter;
     GPUImageMovieWriter *movieWriter;
+    GPUImageOutput<GPUImageInput> *fmFilter;
 }
 
 - (IBAction)updateSliderValue:(id)sender;

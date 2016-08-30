@@ -3,6 +3,9 @@
 
 @interface SimpleVideoFilterViewController()
 @property(strong, nonatomic) GPUImagePicture *pic;
+@property(strong, nonatomic) GPUImageView *oneView;
+@property(strong, nonatomic) GPUImageView *twoView;
+@property(strong, nonatomic) GPUImageBrightnessFilter *brightnessFilter;
 @end
 
 @implementation SimpleVideoFilterViewController
@@ -25,7 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self buildImage];
+//    [self buildImage];
+    
+    self.oneView = [[GPUImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2)];
+    self.twoView = [[GPUImageView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2)];
+    [self.view addSubview:self.oneView];
+    [self.view addSubview:self.twoView];
+    
+    [self buildCamera];
 }
 
 - (void)buildImage
@@ -65,10 +75,14 @@
     //    filter = [[GPUImageSmoothToonFilter alloc] init];
     //    GPUImageRotationFilter *rotationFilter = [[GPUImageRotationFilter alloc] initWithRotation:kGPUImageRotateRightFlipVertical];
     
-    filter = [[GPUImageBeautifyFilter alloc] init];
+    filter = [[GPUImageBeautifyFilterV2 alloc] init];
+    fmFilter = [[GPUImageBeautifyFilter alloc] init];
+    self.brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
     
     [videoCamera addTarget:filter];
-    GPUImageView *filterView = (GPUImageView *)self.view;
+    [videoCamera addTarget:self.twoView];
+//    [videoCamera addTarget:self.brightnessFilter];
+    GPUImageView *filterView = (GPUImageView *)self.oneView;
     //    filterView.fillMode = kGPUImageFillModeStretch;
     //    filterView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
     
@@ -82,8 +96,13 @@
     //    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(640.0, 480.0)];
     //    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(720.0, 1280.0)];
     //    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(1080.0, 1920.0)];
-    [filter addTarget:movieWriter];
+//    [filter addTarget:movieWriter];
+    
+    
     [filter addTarget:filterView];
+    
+//    [fmFilter addTarget:self.twoView];
+//    [self.brightnessFilter addTarget:self.twoView];
     
     [videoCamera startCameraCapture];
     
@@ -92,7 +111,7 @@
     dispatch_after(startTime, dispatch_get_main_queue(), ^(void){
         NSLog(@"Start recording");
         
-        videoCamera.audioEncodingTarget = movieWriter;
+//        videoCamera.audioEncodingTarget = movieWriter;
         [movieWriter startRecording];
         
         //        NSError *error = nil;
@@ -185,12 +204,18 @@
 - (IBAction)updateSliderValue:(id)sender
 {
 //    [(GPUImageSepiaFilter *)filter setIntensity:[(UISlider *)sender value]];
-    [self.pic processImage];
-    NSURL *url = [NSURL URLWithString:@" prefs:root=General&path=CarPlay"];
-    if ([[UIApplication sharedApplication] canOpenURL:url])
-    {
-        [[UIApplication sharedApplication] openURL:url];
-    }
+//    [self.pic processImage];
+//    NSURL *url = [NSURL URLWithString:@" prefs:root=General&path=CarPlay"];
+//    if ([[UIApplication sharedApplication] canOpenURL:url])
+//    {
+//        [[UIApplication sharedApplication] openURL:url];
+//    }
+    
+    GPUImageBeautifyFilter *beautify = filter;
+    [beautify setBeautyLevel:[(UISlider *)sender value]];
+    
+    beautify = fmFilter;
+    [beautify setBeautyLevel:[(UISlider *)sender value]];
 }
 
 @end
