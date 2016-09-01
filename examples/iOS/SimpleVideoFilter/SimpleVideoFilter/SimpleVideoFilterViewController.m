@@ -75,7 +75,7 @@
     //    filter = [[GPUImageSmoothToonFilter alloc] init];
     //    GPUImageRotationFilter *rotationFilter = [[GPUImageRotationFilter alloc] initWithRotation:kGPUImageRotateRightFlipVertical];
     
-    filter = [[GPUImageBeautifyFilterV2 alloc] init];
+    filter = [[GPUImageBeautifyFilter alloc] init];
     fmFilter = [[GPUImageBeautifyFilter alloc] init];
     self.brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
     
